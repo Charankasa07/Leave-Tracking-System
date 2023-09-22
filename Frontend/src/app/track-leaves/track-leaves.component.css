@@ -1,0 +1,53 @@
+.table{
+    text-align: center;
+    font-size: 15px;
+    margin-top:0.5%;
+}
+#action{
+    display: flex;
+    justify-content: center;
+    column-gap: 20%;
+}
+.even{
+    background-color: rgb(214, 221, 226);
+}
+.odd{
+    background-color:aliceblue
+}
+td,th{
+    padding: 1%;
+}
+.rejected{
+    color: rgb(176, 5, 5);
+}
+.pending{
+    color: rgb(0, 97, 139);
+}
+.accepted{
+    color:rgb(1, 137, 1);
+}
+a,button{
+    background-color: transparent;
+    border: none;
+    margin-top: 3%;
+}
+#edit{
+    color: rgb(0, 97, 139);
+    border: 1px solid rgb(0, 97, 139);
+    padding: 22% 28%;
+    border-radius: 15%;
+}
+#delete{
+    color: rgb(176, 5, 5);
+    border: 1px solid rgb(176, 5, 5);
+    padding: 22% 32%;
+    border-radius: 15%;
+}
+#message{
+    margin-top:5%;
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-size: x-large;
+    color:rgb(91,91,91);
+}
