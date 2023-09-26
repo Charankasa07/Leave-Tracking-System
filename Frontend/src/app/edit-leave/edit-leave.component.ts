@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, TitleStrategy } from '@angular/router';
 import { Leave, UserRegister } from '../User';
 import { BackendService } from '../backend.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-edit-leave',
@@ -11,7 +12,8 @@ import { BackendService } from '../backend.service';
 export class EditLeaveComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private backend : BackendService
+    private backend : BackendService,
+    private message : NzMessageService
   ) {}
   leaves: Leave[] = [];
   leaveId! : number;
@@ -35,8 +37,6 @@ export class EditLeaveComponent implements OnInit {
     status: '',
     message: '',
   };
-  message = '';
-  displayMessage = false;
   ngOnInit(): void {
     //taking the param from the route
     this.leaveId = this.route.snapshot.params['id'];
@@ -66,18 +66,17 @@ export class EditLeaveComponent implements OnInit {
           this.leave.email = this.currentUser.email;
           this.leave.name = this.currentUser.name;
           this.backend.applyLeave(this.leave).subscribe((res)=>console.log(res))
+          this.message.success("Leave Edited Successfully",{nzDuration:1500})
+            setTimeout(()=>{
+              window.location.href="http://localhost:4200/employee/track-leaves"
+            },1500)
       } else {
         //displayin error message if the endDate is not greater than startDate
-        this.message =
-          'End Date must be Start Date or greater than Start Date';
-        this.displayMessage = true;
-        setTimeout(() => (this.displayMessage = false), 2000);
+        this.message.error("End Date must be greater than Start Date",{nzDuration:1500})
       }
     } else {
       //displaying error message if the startDate is not greater than the current Date
-      this.message = 'Start Date must be from Today or greater';
-      this.displayMessage = true;
-      setTimeout(() => (this.displayMessage = false), 2000);
+      this.message.error("Start Date must be greater than Today's Date",{nzDuration:1500})
     }
   }
 }

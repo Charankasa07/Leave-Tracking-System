@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRegister } from '../User';
 import { BackendService } from '../backend.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-settings',
@@ -8,7 +9,7 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent implements OnInit {
-  constructor(private backend : BackendService){}
+  constructor(private backend : BackendService,private message : NzMessageService){}
   oldNumberOfLeaves: number = 0;
   numberOfLeaves!: number;
   users: UserRegister[] = [];
@@ -22,6 +23,9 @@ export class SettingsComponent implements OnInit {
   }
   onSubmit() {
     this.backend.updateLeaveCount(this.numberOfLeaves).subscribe((res)=>console.log(res))
-    window.location.href = 'http://localhost:4200/manager/new-requests';
+    this.message.success("Leave Count Updated Successfully",{nzDuration:1500})
+    setTimeout(()=>{
+      window.location.href = 'http://localhost:4200/manager/new-requests';
+    },1500)
   }
 }

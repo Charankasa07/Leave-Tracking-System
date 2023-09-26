@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLogin, UserRegister } from '../User';
 import { BackendService } from '../backend.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +9,18 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private backend : BackendService){}
+  constructor(private backend : BackendService,private message : NzMessageService){}
   currentUser: UserLogin = {
     email: '',
     password: '',
   };
-  message = '';
-  displayMessage = false;
   
   onLogin(){
       let statusCode !:Number; 
       this.backend.onLogin(this.currentUser).subscribe((res) => {
         console.log(res)
         if(res.statusCode !=='OK'){
-          this.message = res.message
-          this.displayMessage=true
-          setTimeout(() => (this.displayMessage = false), 2000);
+          this.message.error(res.message,{nzDuration:2000})
         }
         else{
           localStorage.setItem('currentUser',JSON.stringify(res.data))

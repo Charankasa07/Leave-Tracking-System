@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Location } from '@angular/common';
 import { Leave, UserRegister } from '../User';
 import { BackendService } from '../backend.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-apply-leave',
@@ -12,7 +13,8 @@ import { BackendService } from '../backend.service';
 export class ApplyLeaveComponent implements OnInit {
   constructor(
     private location: Location,
-    private backend : BackendService
+    private backend : BackendService,
+    private message : NzMessageService
   ) {}
   leaves: Leave[] = [];
   users: UserRegister[] = [];
@@ -36,8 +38,6 @@ export class ApplyLeaveComponent implements OnInit {
     status: 'pending',
     message: '',
   };
-  message = '';
-  displayMessage = false;
   //function for applying a leave
   onApplyLeave() {
        //converting the startDate of the leave to the ISO String format
@@ -51,19 +51,17 @@ export class ApplyLeaveComponent implements OnInit {
             this.leave.email = this.currentUser.email;
             this.leave.name = this.currentUser.name;
             this.backend.applyLeave(this.leave).subscribe((res)=>console.log(res))
-            window.location.href="http://localhost:4200/employee/track-leaves"
+            this.message.success("Leave Applied Successfully",{nzDuration:1500})
+            setTimeout(()=>{
+              window.location.href="http://localhost:4200/employee/track-leaves"
+            },1500)
         } else {
           //displayin error message if the endDate is not greater than startDate
-          this.message =
-            'End Date must be Start Date or greater than Start Date';
-          this.displayMessage = true;
-          setTimeout(() => (this.displayMessage = false), 2000);
+          this.message.error("End Date must be greater than Start Date",{nzDuration:1500})
         }
       } else {
         //displaying error message if the startDate is not greater than the current Date
-        this.message = 'Start Date must be from Today or greater';
-        this.displayMessage = true;
-        setTimeout(() => (this.displayMessage = false), 2000);
+        this.message.error("Start Date must be greater than Today's Date",{nzDuration:1500})
       }
   }
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRegister } from '../User';
 import { BackendService } from '../backend.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-registration',
@@ -8,9 +9,7 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private backend: BackendService) { }
-  displayMessage: boolean = false;
-  message = '';
+  constructor(private backend: BackendService,private message : NzMessageService) { }
   user: UserRegister = {
     role: 'employee',
     name: '',
@@ -26,9 +25,7 @@ export class RegistrationComponent implements OnInit {
     this.backend.onRegister(this.user).subscribe((res) => {
       console.log(res)
       if (res.statusCode !== "CREATED") {
-        this.message = res.message
-        this.displayMessage = true
-        setTimeout(() => { this.displayMessage = false }, 2000)
+        this.message.error(res.message,{nzDuration:2000})
       }
       else{
         localStorage.setItem('currentUser',JSON.stringify(res.data))
@@ -41,6 +38,7 @@ export class RegistrationComponent implements OnInit {
     });
 
   }
+
   ngOnInit(): void {
     const userData = localStorage.getItem('currentUser');
     if (userData) {

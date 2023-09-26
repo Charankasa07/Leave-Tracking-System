@@ -28,6 +28,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import {NzMessageModule} from 'ng-zorro-antd/message'
 
 registerLocaleData(en);
 
@@ -60,7 +61,8 @@ registerLocaleData(en);
     NzSpinModule,
     NzModalModule,
     NzButtonModule,
-    NzInputModule
+    NzInputModule,
+    NzMessageModule
   ],
   bootstrap: [AppComponent],
   providers: [

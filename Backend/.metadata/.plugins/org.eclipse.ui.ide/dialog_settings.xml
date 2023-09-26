@@ -38,6 +38,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/charan/Desktop/Spring Projects/Backend"/>
+			<item value="/home/charan/Desktop/Spring Projects"/>
+			<item value="/home/charan/Desktop/LTS"/>
 			<item value="/home/charan/Desktop/LTS/Backend"/>
 		</list>
 	</section>

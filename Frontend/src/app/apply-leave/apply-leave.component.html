@@ -1,7 +1,6 @@
 <div class="container">
     <form #leaveForm="ngForm" (ngSubmit)="onApplyLeave()">
         <p id="title">Apply Leave</p>
-        <p *ngIf="displayMessage">{{message}}</p>
         <select name="leave-type" class="form-control" [(ngModel)]="leave.type">
             <option value="sick leave">Sick Leave</option>
             <option value="vacation">Vacation</option>

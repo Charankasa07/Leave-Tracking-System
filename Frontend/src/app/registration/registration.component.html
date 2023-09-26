@@ -1,7 +1,6 @@
 <div class="container">
     <form #registrationForm="ngForm" (ngSubmit)="onRegister()">
         <p id="title">Registration</p>
-        <p *ngIf="message" id="message">{{message}}</p>
         <select name="role" class="form-control" [(ngModel)]="user.role">
             <option value="employee">Employee</option>
             <option value="manager">Manager</option>

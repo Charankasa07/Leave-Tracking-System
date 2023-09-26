@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserRegister, Leave } from '../User';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { BackendService } from '../backend.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-track-leaves',
@@ -9,7 +10,7 @@ import { BackendService } from '../backend.service';
   styleUrls: ['./track-leaves.component.css'],
 })
 export class TrackLeavesComponent implements OnInit {
-  constructor(private backend : BackendService){}
+  constructor(private backend : BackendService,private message : NzMessageService){}
   currentUser: UserRegister = {
     role: '',
     name: '',
@@ -38,6 +39,9 @@ export class TrackLeavesComponent implements OnInit {
   }
   delete(id: Number) {
     this.backend.deleteLeave(id).subscribe((res)=>console.log(res))
-    window.location.reload();
+    this.message.success("Leave Deleted Successfully",{nzDuration:1500})
+    setTimeout(()=>{
+      window.location.reload()
+    },1500)
   }
 }
