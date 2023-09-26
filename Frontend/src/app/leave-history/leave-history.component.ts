@@ -24,6 +24,7 @@ export class LeaveHistoryComponent implements OnInit {
   PendingLeaves!:Number ;
   leaves : Leave[]=[]
   numberOfLeaves = 0;
+  isFetched=false;
   ngOnInit(): void {
     const currentUserData = localStorage.getItem('currentUser');
     if(currentUserData){
@@ -32,22 +33,22 @@ export class LeaveHistoryComponent implements OnInit {
       window.location.href='http://localhost:4200/login'
     }
    
+    this.isFetched=false
     this.backend.getAllLeaves(this.currentUser.email).subscribe((res)=>{
       this.leaves = res.data
       this.AcceptedLeaves = this.leaves.filter(
         (leave) => leave.status === 'accepted'
       ).length;
-      console.log(this.AcceptedLeaves);
       
       this.RejectedLeaves = this.leaves.filter(
         (leave) => leave.status === 'rejected'
       ).length;
-      console.log(this.RejectedLeaves);
       
       this.PendingLeaves = this.leaves.filter(
         (leave) => leave.status === 'pending'
       ).length;
-      console.log(this.PendingLeaves);
+
+      this.isFetched=true
     })
  
   }

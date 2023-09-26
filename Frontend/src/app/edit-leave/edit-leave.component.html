@@ -1,4 +1,5 @@
-<div class="container">
+<nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
+<div class="container" *ngIf="isFetched">
     <form #leaveForm="ngForm" (ngSubmit)="save()">
         <p id="title">Edit Leave</p>
         <select name="leave-type" class="form-control" [(ngModel)]="leave.type">

@@ -39,10 +39,12 @@ export class NewRequestsComponent implements OnInit {
   managerMessage: string = '';
   acceptIcon = faCheck;
   rejectIcon = faXmark;
+  isFetched=true
   ngOnInit(): void {
-
+    this.isFetched=false
     this.backend.getNewRequests().subscribe((res)=>{
       this.leaves = res.data
+      this.isFetched = true
     })
 
     const currentUserData = localStorage.getItem('currentUser')

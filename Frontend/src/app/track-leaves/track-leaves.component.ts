@@ -23,6 +23,7 @@ export class TrackLeavesComponent implements OnInit {
   deleteIcon = faTrashCan;
   editIcon = faPenToSquare;
   leaves: Leave[] = [];
+  isFetched : boolean =false;
 
   ngOnInit(): void {
     const currentUserData = localStorage.getItem('currentUser');
@@ -31,9 +32,10 @@ export class TrackLeavesComponent implements OnInit {
     }else{
       window.location.href='http://localhost:4200/login'
     }
-
+    this.isFetched=false
     this.backend.getAllLeaves(this.currentUser.email).subscribe((res)=>{
       this.leaves = res.data
+      this.isFetched=true
     })
     
   }

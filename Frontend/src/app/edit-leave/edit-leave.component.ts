@@ -37,14 +37,8 @@ export class EditLeaveComponent implements OnInit {
     status: '',
     message: '',
   };
+  isFetched=false
   ngOnInit(): void {
-    //taking the param from the route
-    this.leaveId = this.route.snapshot.params['id'];
-
-    this.backend.getLeave(this.leaveId).subscribe((res)=> {
-      this.leave = res.data
-    })
-    
     const currentUserData = localStorage.getItem('currentUser');
     //getting the current user data
     if (currentUserData) {
@@ -52,6 +46,16 @@ export class EditLeaveComponent implements OnInit {
     }else{
       window.location.href='http://localhost:4200/login'
     }
+    
+    //taking the param from the route
+    this.leaveId = this.route.snapshot.params['id'];
+
+    this.isFetched=false
+    this.backend.getLeave(this.leaveId).subscribe((res)=> {
+      this.leave = res.data
+      this.isFetched=true
+    })
+    
   }
   //function for saving the changes
   save() {

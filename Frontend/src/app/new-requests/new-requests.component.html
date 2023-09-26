@@ -1,4 +1,5 @@
-<div class="container">
+<nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
+<div class="container" *ngIf="isFetched">
   <p *ngIf="!leaves.length" id="message">No Data</p>
   <table *ngIf="leaves.length" class="table">
     <tr>

@@ -10,12 +10,15 @@ import { BackendService } from '../backend.service';
 export class OverviewComponent implements OnInit {
   constructor(private backend : BackendService){}
   allLeaves: Leave[] = [];
+  isFetched=true;
   ngOnInit(): void {
     
+    this.isFetched = true
     this.backend.getOverviewLeaves().subscribe((res)=>{
       console.log(res.data)
       this.allLeaves = res.data;
       this.allLeaves = this.allLeaves.filter((leave)=> leave.status !=='pending');
+      this.isFetched = false
     });
 
     const currentUserData = localStorage.getItem('currentUser')
