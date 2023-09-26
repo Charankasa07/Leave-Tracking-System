@@ -15,26 +15,24 @@ nav{
     color: aliceblue;
     font-family:'Times New Roman', Times, serif;
 }
-.dropdown-menu{
+
+button,button:hover,li,li:hover{
     background-color:rgb(12, 82, 138);
-    /* background-color: rgba(12,82,138,0.1); */
-}
-button,button:hover,li{
     color: aliceblue;
-}
-.dropdown-menu{
-    height: 48px;
-    padding-left: 30%;
-    border: none;
-    border-radius: 0% 0% 0% 5px;
-}
-li>p{
-    color: white;
-    cursor: pointer;
+    border : none;
 }
 button{
-    font-size: 18px;
-} 
+    font-size:18px;
+    text-align: left;
+}
+li{
+    font-size:15px;
+    font-family:'Times New Roman', Times, serif;
+}
+ul{
+    background-color: rgb(12, 82, 138);
+    margin-top:-7px
+}
 .headings{
     display: flex;
     justify-content: space-between;

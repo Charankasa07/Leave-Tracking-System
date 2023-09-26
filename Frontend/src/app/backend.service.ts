@@ -26,7 +26,7 @@ export class BackendService {
   }
 
   reactToLeave(id : Number , action : String,message : any):Observable<any>{
-    return this.http.patch<any>(this.url + `manager/leave/${id}/${action}`,message);
+    return this.http.post<any>(this.url + `manager/leave/${id}/${action}`,message);
   }
 
   getOverviewLeaves() : Observable<any>{
@@ -48,7 +48,7 @@ export class BackendService {
   }
 
   editLeave(id : Number , leave : Leave) : Observable<any>{
-    return this.http.patch<any>(this.url + `employee/edit-leave/${id}`,leave);
+    return this.http.post<any>(this.url + `employee/edit-leave/${id}`,leave);
   }
 
   getLeave(id:Number):Observable<any>{

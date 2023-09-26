@@ -29,6 +29,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import {NzMessageModule} from 'ng-zorro-antd/message'
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 registerLocaleData(en);
 
@@ -62,7 +64,9 @@ registerLocaleData(en);
     NzModalModule,
     NzButtonModule,
     NzInputModule,
-    NzMessageModule
+    NzMessageModule,
+    NzDropDownModule,
+    NzIconModule
   ],
   bootstrap: [AppComponent],
   providers: [

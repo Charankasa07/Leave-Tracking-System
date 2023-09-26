@@ -6,16 +6,18 @@
       <a routerLink="login">Login</a>
       <a routerLink="register">Register</a>
     </div>
-    <div class="btn-group" dropdown *ngIf="currentUser.name.length">
-      <button id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle"
-              aria-controls="dropdown-basic">
-              <fa-icon [icon]="userIcon"></fa-icon> {{ currentUser.name | titlecase }}
-      </button>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-          role="menu" aria-labelledby="button-basic">
-        <li role="menuitem" ><p (click)="logout()">Logout</p></li>
+    <button nz-button nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomLeft'" *ngIf="currentUser.name.length">
+      <p style="display: flex;align-items: center;column-gap: 5px;justify-content: flex-start;">
+        <span nz-icon nzType="user" nzTheme="outline"></span>
+        {{currentUser.name | titlecase}}
+        <span nz-icon nzType="down-circle" nzTheme="fill"></span>
+      </p>
+    </button>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item (click)="logout()">Logout</li>
       </ul>
-    </div>
+    </nz-dropdown-menu>
   </div>
 </nav>
 <router-outlet></router-outlet>
