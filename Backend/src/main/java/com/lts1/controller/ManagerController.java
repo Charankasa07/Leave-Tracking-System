@@ -74,7 +74,7 @@ public class ManagerController {
 				List<Leaves> leaves = leaveService.getUserLeaves(u.getEmail());
 				int count1=0;
 				for(Leaves l:leaves) {
-					if(l.getEmail().equals(u.getEmail()) && !l.getStatus().equals("pending")) {
+					if(l.getEmail().equals(u.getEmail()) && l.getStatus().equals("accepted")) {
 						count1+=1;
 					}
 				}
