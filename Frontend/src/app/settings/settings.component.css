@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 77vh;
-    width: 100vw;
+    height: 500px;
+    width: 800px;
 }
 .form{
     display: flex;
@@ -13,8 +13,13 @@
     row-gap: 10%;
     border: 1px solid rgb(84, 87, 90);
     background-color:rgb(241, 245, 251);
-    height: 25vh;
-    width: 30vw;
+    height: 200px;
+    width: 450px;
     padding: 2%;
     border-radius: 10px;
+}
+button,button:disabled{
+    width:250px;
+    background: transparent;
+    color: rgb(60, 62, 63);
 }

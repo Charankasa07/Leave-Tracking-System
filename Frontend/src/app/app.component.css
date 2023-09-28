@@ -11,7 +11,7 @@ nz-affix{
     align-items: center;
     font-size: 17px;
     padding: 0% 1%;
-    height: 15vh;
+    height:110px;
     color: aliceblue;
     font-family:'Times New Roman', Times, serif;
 }
@@ -53,8 +53,8 @@ a{
 }
 #heading{
     background-color: aliceblue;
-    height: 5vh;
-    width: 4vw;
+    height: 32px;
+    width: 50px;
     color: rgb(12, 82, 138);    
     text-align: center;
     margin-bottom: -1.6%;

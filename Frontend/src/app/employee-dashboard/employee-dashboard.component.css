@@ -4,7 +4,7 @@
     align-items: center;
     padding: 0% 2%;
     background-color: rgb(214, 221, 226);
-    height: 6vh;
+    height: 35px;
     box-sizing: border-box;
 }
 .child-tabs{
@@ -15,8 +15,8 @@
 a{
     text-decoration: none;
     color:rgb(84, 87, 90);
-    height: 4.5vh;
-    width: 10vw;
+    height: 27px;
+    width: 130px;
     display: grid;
     place-items:center ;
     border-radius: 3px;

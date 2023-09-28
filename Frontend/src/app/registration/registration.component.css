@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: 550px;
     font-family: 'Times New Roman', Times, serif;
 }
 form{
@@ -10,8 +10,8 @@ form{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 60vh;
-    width: 25vw;
+    height: 400px;
+    width: 300px;
     min-width: fit-content;
     border: 1px solid rgb(84, 87, 90);
     background-color:rgb(241, 245, 251);
@@ -19,9 +19,15 @@ form{
     border-radius: 3%;
 }
 select,input{
-    width: 20vw;
+    width: 250px;
     border-radius: 2px;
     border: none;
+}
+button,button:disabled{
+    border: 1px solid rgb(60, 62, 63);
+    width:250px;
+    background: transparent;
+    color: rgb(60, 62, 63);
 }
 #title{
     font-weight: 500;
@@ -37,8 +43,4 @@ select,input{
 a{
     text-decoration: none;
     color: rgb(0, 0, 0);
-}
-#message{
-    margin-top: -8%;
-    margin-bottom: -1%;
 }
