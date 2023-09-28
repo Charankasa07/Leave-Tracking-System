@@ -1,24 +1,6 @@
-#title1{
-    width: 100vw;
-    text-align: center;
-    font-size: xx-large;
-}
-nz-affix{
-    background-color: rgb(12, 82, 138);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 17px;
-    padding: 0% 1%;
-    height: 15vh;
-    color: aliceblue;
-    font-family:'Times New Roman', Times, serif;
-}
-
 button,button:hover,li,li:hover{
-    background-color:rgb(12, 82, 138);
-    color: aliceblue;
+    background-color:#05386B ;
+    color: white;
     border : none;
 }
 button{
@@ -27,38 +9,36 @@ button{
 }
 li{
     font-size:15px;
-    font-family:'Times New Roman', Times, serif;
+    font-weight: 400;
+    background-color: white;
+    color: #05386B;
+}
+li:hover{
+    background-color: #f6faff;
+    color: black;
 }
 ul{
-    background-color: rgb(12, 82, 138);
-    margin-top:-7px
+    margin-left: 7px;
+    background-color: white;
+    margin-top:-7px;
+    height: 34px
 }
 .headings{
     display: flex;
     justify-content: space-between;
     width: 100vw;
     padding: 0% 2% 0% 4%;
-    
-}
-a{
-    text-decoration: none;
-    color: aliceblue;
-}
-.login-register{
-    display:flex ;
-    justify-content: space-around;
-    align-items: center;
-    width: 10%;
-    padding-bottom: 0.5%;
+    background-color: #05386B ;
 }
 #heading{
-    background-color: aliceblue;
-    height: 5vh;
-    width: 4vw;
-    color: rgb(12, 82, 138);    
+    background-color:white;
+    height: 32px;
+    width: 61px;
+    font-weight: 400 ;
+    color: #05386B ;    
     text-align: center;
     margin-bottom: -1.6%;
     padding-top: 0.7%;
     border: none;
-    border-radius: 2px 2px 0px 0px;
+    cursor: pointer;
 }

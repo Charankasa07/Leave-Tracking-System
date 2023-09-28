@@ -11,15 +11,19 @@
     align-items: center;
     flex-direction: column;
     row-gap: 10%;
-    border: 1px solid rgb(84, 87, 90);
-    background-color:rgb(241, 245, 251);
+    border: 1px solid rgb(0,0,0,0.125);
     height: 200px;
     width: 450px;
     padding: 2%;
     border-radius: 10px;
 }
 button,button:disabled{
-    width:250px;
+    width:420px;
     background: transparent;
-    color: rgb(60, 62, 63);
+    color: #05386B;
+    border:1px solid #05386B
+}
+button:hover{
+    color:white;
+    background-color: #05386B;
 }

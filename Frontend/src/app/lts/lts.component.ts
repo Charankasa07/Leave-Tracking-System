@@ -20,12 +20,12 @@ export class LtsComponent implements OnInit{
     const currentUserData = localStorage.getItem("currentUser")
     if(currentUserData){
       this.currentUser = JSON.parse(currentUserData)
-      if (this.currentUser.role === 'employee') {
-        window.location.href = 'http://localhost:4200/employee';
-      } else {
-        window.location.href = 'http://localhost:4200/manager';
-      }
     }
+  }
 
+  logout() {
+    //removing user from cookie storage as he/she is logged out
+    localStorage.removeItem('currentUser')
+    window.location.href = 'http://localhost:4200/';
   }
 }

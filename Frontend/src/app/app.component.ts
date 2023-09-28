@@ -26,9 +26,5 @@ export class AppComponent implements OnInit {
       this.currentUser = JSON.parse(currentUserData);
     }
   }
-  logout() {
-    //removing user from cookie storage as he/she is logged out
-    localStorage.removeItem('currentUser')
-    window.location.href = 'http://localhost:4200/';
-  }
+
 }

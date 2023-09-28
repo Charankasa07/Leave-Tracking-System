@@ -11,28 +11,30 @@ form{
     justify-content: space-evenly;
     align-items: center;
     height: 350px;
-    width: 350px;
+    width: 500px;
     min-width: fit-content;
-    border: 1px solid rgb(84, 87, 90);
-    background-color:rgb(241, 245, 251);
+    border: 1px solid rgba(0, 0, 0, 0.125);;
     padding: 1% 0%;
-    border-radius: 3%;
 }
 button,button:disabled{
-    width:250px;
+    width:450px;
     background: transparent;
-    color: rgb(60, 62, 63);
+    color: #05386B ;
+    border-color: #05386B;
+}
+button:hover{
+    background-color: #05386B ;
+    color:white
 }
 select,input{
-    width: 300px;
+    width: 450px;
     border-radius: 2px;
-    border: none;
 }
 #title{
     font-weight: 500;
     font-size: x-large;
-    color: rgb(84, 87, 90);
+    color: #05386B ;
 }
 textarea{
-    width: 300px;
+    width: 450px;
 }

@@ -16,7 +16,7 @@
         <input type="password" name="password" placeholder="Password" class="form-control" [(ngModel)]="user.password" required #password="ngModel" minlength="6">
         <p *ngIf="password.errors?.['required'] && password.dirty" class="error-message">Password is Required</p>
         <p *ngIf="password.errors?.['minlength'] && password.dirty" class="error-message">Password must be 6 characters long</p>
-        <button type="submit" [disabled]="registrationForm.invalid" class="btn btn-secondary">Register</button>
+        <button type="submit" [disabled]="registrationForm.invalid" class="btn">Register</button>
         <p>Already had an Account ? <a routerLink="/login">Login</a></p>
     </form>
 </div>

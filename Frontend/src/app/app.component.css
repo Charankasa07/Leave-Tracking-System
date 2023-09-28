@@ -1,10 +1,11 @@
 #title1{
+    margin-top:10px;
     width: 100vw;
     text-align: center;
     font-size: xx-large;
 }
 nz-affix{
-    background-color: rgb(12, 82, 138);
+    background-color: #05386B ;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,37 +13,18 @@ nz-affix{
     font-size: 17px;
     padding: 0% 1%;
     height:110px;
-    color: aliceblue;
-    font-family:'Times New Roman', Times, serif;
-}
-
-button,button:hover,li,li:hover{
-    background-color:rgb(12, 82, 138);
-    color: aliceblue;
-    border : none;
-}
-button{
-    font-size:18px;
-    text-align: left;
-}
-li{
-    font-size:15px;
-    font-family:'Times New Roman', Times, serif;
-}
-ul{
-    background-color: rgb(12, 82, 138);
-    margin-top:-7px
+    color: white;
 }
 .headings{
     display: flex;
-    justify-content: space-between;
-    width: 100vw;
+    justify-content: flex-end;
+    width: 100%;
     padding: 0% 2% 0% 4%;
     
 }
 a{
     text-decoration: none;
-    color: aliceblue;
+    color: white;
 }
 .login-register{
     display:flex ;
@@ -50,15 +32,4 @@ a{
     align-items: center;
     width: 10%;
     padding-bottom: 0.5%;
-}
-#heading{
-    background-color: aliceblue;
-    height: 32px;
-    width: 50px;
-    color: rgb(12, 82, 138);    
-    text-align: center;
-    margin-bottom: -1.6%;
-    padding-top: 0.7%;
-    border: none;
-    border-radius: 2px 2px 0px 0px;
 }

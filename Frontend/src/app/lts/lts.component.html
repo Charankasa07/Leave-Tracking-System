@@ -1,9 +1,5 @@
 <div class="headings">
     <p id="heading">LTS</p>
-    <div class="login-register" *ngIf="!currentUser.name.length">
-      <a routerLink="login">Login</a>
-      <a routerLink="register">Register</a>
-    </div>
     <button nz-button nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomLeft'" *ngIf="currentUser.name.length">
       <p style="display: flex;align-items: center;column-gap: 5px;justify-content: flex-start;">
         <span nz-icon nzType="user" nzTheme="outline"></span>
@@ -13,8 +9,7 @@
     </button>
     <nz-dropdown-menu #menu="nzDropdownMenu">
       <ul nz-menu>
-        <li nz-menu-item>Logout</li>
+        <li nz-menu-item (click)="logout()">Logout<span nz-icon nzType="logout" nzTheme="outline"></span></li>
       </ul>
     </nz-dropdown-menu>
   </div>
-<router-outlet></router-outlet>
