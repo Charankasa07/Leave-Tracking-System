@@ -12,6 +12,10 @@
 td,th{
     padding: 0.5%;
 }
+th{
+    background-color: #05386B;
+    color:white
+}
 button{
     margin: 0% 5px;
     background-color: transparent;
@@ -39,4 +43,8 @@ button{
     font-weight: 400;
     font-size: x-large;
     color:black;
+}
+input{
+    margin:20px 0px;
+    width: 300px;
 }

@@ -17,6 +17,10 @@
 td,th{
     padding: 1%;
 }
+th{
+    background-color: #05386B;
+    color:white
+}
 .rejected{
     color: rgb(176, 5, 5);
 }
@@ -49,4 +53,8 @@ a,button{
     font-size: x-large;
     color:black;
 }
-
+input{
+    margin:20px 0px;
+    width: 300px;
+    left:73%
+}

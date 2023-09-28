@@ -35,15 +35,18 @@ export class NewRequestsComponent implements OnInit {
     this.isVisible = false;
   }
   
-  leaves: Leave[] = [];
+  allLeaves: Leave[] = [];
+  filteredLeaves : Leave[]=[];
   managerMessage: string = '';
+  searchInput:string = '';
   acceptIcon = faCheck;
   rejectIcon = faXmark;
   isFetched=false
   ngOnInit(): void {
     this.isFetched=false
     this.backend.getNewRequests().subscribe((res)=>{
-      this.leaves = res.data
+      this.allLeaves = res.data
+      this.filteredLeaves = this.allLeaves
       setTimeout(()=>{
         this.isFetched=true
       },500)
@@ -73,5 +76,11 @@ export class NewRequestsComponent implements OnInit {
     setTimeout(()=>{
       window.location.reload()
     },1500)
+  }
+  search(){
+    this.filteredLeaves = this.allLeaves.filter((leave)=> {
+        let combinedLeave = leave.name + leave.type + leave.endDate + leave.startDate
+        return combinedLeave.toLowerCase().includes(this.searchInput.toLowerCase())
+    })
   }
 }

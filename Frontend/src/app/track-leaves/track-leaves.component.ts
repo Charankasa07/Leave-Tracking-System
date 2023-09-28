@@ -22,7 +22,9 @@ export class TrackLeavesComponent implements OnInit {
   };
   deleteIcon = faTrashCan;
   editIcon = faPenToSquare;
-  leaves: Leave[] = [];
+  allLeaves: Leave[] = [];
+  filteredLeaves : Leave[]=[];
+  searchInput : string ='';
   isFetched : boolean =false;
 
   ngOnInit(): void {
@@ -34,7 +36,8 @@ export class TrackLeavesComponent implements OnInit {
     }
     this.isFetched=false
     this.backend.getAllLeaves(this.currentUser.email).subscribe((res)=>{
-      this.leaves = res.data
+      this.allLeaves = res.data
+      this.filteredLeaves = this.allLeaves
       setTimeout(()=>{
         this.isFetched=true
       },500)
@@ -47,5 +50,11 @@ export class TrackLeavesComponent implements OnInit {
     setTimeout(()=>{
       window.location.reload()
     },1500)
+  }
+  search(){
+    this.filteredLeaves = this.allLeaves.filter((leave)=> {
+        let combinedLeave =leave.type + leave.endDate + leave.startDate
+        return combinedLeave.toLowerCase().includes(this.searchInput.toLowerCase())
+    })
   }
 }

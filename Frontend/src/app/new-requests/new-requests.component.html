@@ -1,7 +1,8 @@
 <nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
 <div class="container" *ngIf="isFetched">
-  <p *ngIf="!leaves.length" id="message">No Data</p>
-  <table *ngIf="leaves.length" class="table">
+  <p *ngIf="!filteredLeaves.length" id="message">No Data</p>
+  <input type="text" nz-input placeholder="Search" [(ngModel)]="searchInput" (input)="search()" *ngIf="filteredLeaves.length">
+  <table *ngIf="filteredLeaves.length" class="table">
     <tr>
       <th>Employee Name</th>
       <th>Leave Type</th>
@@ -12,7 +13,7 @@
     </tr>
     <tr
       [ngClass]="e ? 'even' : 'odd'"
-      *ngFor="let leave of leaves; let e = even; let o = odd"
+      *ngFor="let leave of filteredLeaves; let e = even; let o = odd"
     >
       <td>{{ leave.name | titlecase }}</td>
       <td>{{ leave.type | titlecase }}</td>
