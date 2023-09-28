@@ -26,7 +26,7 @@ export class BackendService {
   }
 
   reactToLeave(id : Number , action : String,message : any):Observable<any>{
-    return this.http.post<any>(this.url + `manager/leave/${id}/${action}`,message);
+    return this.http.post<any>(this.url + `manager/react-to-leave/${id}/${action}`,message);
   }
 
   getOverviewLeaves() : Observable<any>{
@@ -34,7 +34,7 @@ export class BackendService {
   }
 
   updateLeaveCount(count : Number) : Observable<any>{
-    return this.http.post<Number>(this.url + `manager/${count}`,null);
+    return this.http.post<Number>(this.url + `manager/update-leave-count/${count}`,null);
   }
 
 
@@ -44,7 +44,7 @@ export class BackendService {
   }
 
   getAllLeaves(email : string) : Observable<any>{
-    return this.http.get<any>(this.url + `employee/leaves/${email}`)
+    return this.http.get<any>(this.url + `employee/get-leaves/${email}`)
   }
 
   editLeave(id : Number , leave : Leave) : Observable<any>{
@@ -56,6 +56,10 @@ export class BackendService {
   }
 
   deleteLeave(id : Number) : Observable<any> {
-    return this.http.delete<any>(this.url + `employee/leave/${id}`)
+    return this.http.delete<any>(this.url + `employee/delete-leave/${id}`)
+  }
+
+  getLeaveHistory(email : string) : Observable<any> {
+    return this.http.get<any>(this.url + `employee/get-leave-history/${email}`)
   }
 }

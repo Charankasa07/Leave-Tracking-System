@@ -32,7 +32,7 @@ export class ApplyLeaveComponent implements OnInit {
     name: '',
     email:'',
     type: 'sick leave',
-    startDate: '',
+    startDate:'',
     endDate: '',
     reason: '',
     status: 'pending',

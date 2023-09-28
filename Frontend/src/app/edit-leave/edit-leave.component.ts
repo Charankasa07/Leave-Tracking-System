@@ -53,6 +53,8 @@ export class EditLeaveComponent implements OnInit {
     this.isFetched=false
     this.backend.getLeave(this.leaveId).subscribe((res)=> {
       this.leave = res.data
+      this.leave.startDate = res.data.startDate.slice(0,16)
+      this.leave.endDate = res.data.endDate.slice(0,16)
       this.isFetched=true
     })
     
@@ -67,12 +69,13 @@ export class EditLeaveComponent implements OnInit {
       const endDate = new Date(this.leave.endDate).toISOString();
        //comparing whether the endDate is greater than the startDate or not
       if (endDate >= startDate) {
+
           this.leave.email = this.currentUser.email;
           this.leave.name = this.currentUser.name;
-          this.backend.applyLeave(this.leave).subscribe((res)=>console.log(res))
+          this.backend.editLeave(this.leave.id,this.leave).subscribe((res)=>console.log(res))
           this.message.success("Leave Edited Successfully",{nzDuration:1500})
             setTimeout(()=>{
-              window.location.href="http://localhost:4200/employee/track-leaves"
+              //window.location.href="http://localhost:4200/employee/track-leaves"
             },1500)
       } else {
         //displayin error message if the endDate is not greater than startDate

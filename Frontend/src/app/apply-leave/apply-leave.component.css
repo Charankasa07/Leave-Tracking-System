@@ -18,6 +18,11 @@ form{
     padding: 1% 0%;
     border-radius: 3%;
 }
+button,button:disabled{
+    width:20vw;
+    background: transparent;
+    color: rgb(60, 62, 63);
+}
 select,input{
     width: 20vw;
     border-radius: 2px;

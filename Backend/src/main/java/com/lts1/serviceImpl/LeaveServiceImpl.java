@@ -26,18 +26,9 @@ public class LeaveServiceImpl implements LeaveService{
 	public void deleteLeave(int id) {
 		leaveRepo.deleteById(id);
 	}
-	
-	public String checkLeaveStatus(int id) {
-		Optional<Leaves>leave = leaveRepo.findById(id);
-		if(leave.isPresent()) {
-			Leaves leave1 = leave.get();
-			return leave1.getStatus();
-		}
-		return "";
-	}
+
 
 	public List<Leaves> getPendingLeaves() {
-		System.out.println(leaveRepo.findAllByStatus("pending"));
 		return leaveRepo.findAllByStatus("pending");
 	}
 

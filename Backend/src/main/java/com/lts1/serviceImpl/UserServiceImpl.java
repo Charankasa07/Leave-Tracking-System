@@ -24,7 +24,6 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public void registerUser(User user) {
-		user.setNumberOfLeaves(0);
 		userRepo.save(user);
 	}
 	

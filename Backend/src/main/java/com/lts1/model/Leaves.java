@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.util.Date;
+
 @Entity
 public class Leaves{
 	@Id
@@ -13,15 +15,19 @@ public class Leaves{
 	private String name;
 	private String email;
 	private String type;
-	private String startDate;
-	private String endDate;
+	private
+String startDate;
+	private
+String endDate;
 	private String reason;
 	private String status;
 	private String message;
 
 	public Leaves(){}
 	
-	public Leaves(String name, String email, String type, String startDate, String endDate, String reason,
+	public Leaves(String name, String email, String type,
+String startDate,
+String endDate, String reason,
 			String status, String message) {
 		this.name = name;
 		this.email = email;
@@ -74,16 +80,20 @@ public class Leaves{
 	public void setMessage(String managerReason) {
 		this.message = managerReason;
 	}
-	public String getStartDate() {
+	public
+String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(String startDate) {
+	public void setStartDate(
+String startDate) {
 		this.startDate = startDate;
 	}
-	public String getEndDate() {
+	public
+String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(String endDate) {
+	public void setEndDate(
+String endDate) {
 		this.endDate = endDate;
 	}
 	@Override

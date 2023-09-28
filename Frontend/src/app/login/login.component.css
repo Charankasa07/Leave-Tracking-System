@@ -13,7 +13,7 @@ form{
     height: 40vh;
     width: 25vw;
     min-width: fit-content;
-    /* border: 1px solid rgb(84, 87, 90); */
+    border: 1px solid rgb(84, 87, 90);
     background-color:rgb(241, 245, 251);
     background-color: transparent;
     padding: 1% 0%;

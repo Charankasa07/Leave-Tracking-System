@@ -34,21 +34,13 @@ export class LeaveHistoryComponent implements OnInit {
     }
    
     this.isFetched=false
-    this.backend.getAllLeaves(this.currentUser.email).subscribe((res)=>{
-      this.leaves = res.data
-      this.AcceptedLeaves = this.leaves.filter(
-        (leave) => leave.status === 'accepted'
-      ).length;
-      
-      this.RejectedLeaves = this.leaves.filter(
-        (leave) => leave.status === 'rejected'
-      ).length;
-      
-      this.PendingLeaves = this.leaves.filter(
-        (leave) => leave.status === 'pending'
-      ).length;
-
-      this.isFetched=true
+    this.backend.getLeaveHistory(this.currentUser.email).subscribe(res=>{
+      this.AcceptedLeaves = res.acceptedCount;
+      this.RejectedLeaves = res.rejectedCount;
+      this.PendingLeaves = res.pendingCount
+      setTimeout(()=>{
+        this.isFetched=true
+      },500)
     })
  
   }

@@ -3,6 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "dateformatter",
+      "request": "launch",
+      "mainClass": "dateformatter",
+      "projectName": "Frontend_8085e2b4"
+    },
+    {
       "name": "ng serve",
       "type": "chrome",
       "request": "launch",

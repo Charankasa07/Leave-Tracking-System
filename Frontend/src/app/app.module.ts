@@ -31,6 +31,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import {NzMessageModule} from 'ng-zorro-antd/message'
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzAffixModule } from 'ng-zorro-antd/affix';
+import { LtsComponent } from './lts/lts.component';
 
 registerLocaleData(en);
 
@@ -49,7 +52,8 @@ registerLocaleData(en);
     NewRequestsComponent,
     OverviewComponent,
     LeaveHistoryComponent,
-    SettingsComponent
+    SettingsComponent,
+    LtsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ registerLocaleData(en);
     NzInputModule,
     NzMessageModule,
     NzDropDownModule,
-    NzIconModule
+    NzIconModule,
+    NzDividerModule,
+    NzAffixModule
   ],
   bootstrap: [AppComponent],
   providers: [

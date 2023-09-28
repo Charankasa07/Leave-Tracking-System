@@ -1,5 +1,5 @@
 <nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
-<div class="container" *ngIf="isFetched">
+<nz-affix class="container" *ngIf="isFetched">
  <p *ngIf="!leaves.length" id="message">No Data</p>
     <table class="table" *ngIf="leaves.length" >
     <tr>
@@ -38,14 +38,14 @@
         }}
       </td>
       <td id="action">
-        <a
+        <button
           [routerLink]="['../edit-leave', leave.id]"
           *ngIf="leave.status === 'pending'"
-          ><fa-icon [icon]="editIcon" id="edit"></fa-icon></a>
+          ><span nz-icon nzType="edit" nzTheme="outline" id="edit"></span></button>
           <button (click)="delete(leave.id)" *ngIf="leave.status === 'pending'">
-          <fa-icon [icon]="deleteIcon" id="delete"></fa-icon>
+            <span nz-icon nzType="delete" nzTheme="outline" id="delete"></span>
         </button>
       </td>
     </tr>
   </table>
-</div>
+</nz-affix>

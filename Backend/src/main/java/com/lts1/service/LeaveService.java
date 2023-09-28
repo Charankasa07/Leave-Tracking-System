@@ -11,8 +11,10 @@ public interface LeaveService {
 	public List<Leaves> getUserLeaves(String email);
 	
 	public void deleteLeave(int id);
-	
-	public String checkLeaveStatus(int id);
+
+	public List<Leaves> getPendingLeaves();
+
+	public List<Leaves> getAllLeaves();
 	
 	public Leaves checkExistence(int id);
 	

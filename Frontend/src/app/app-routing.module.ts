@@ -12,6 +12,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TrackLeavesComponent } from './track-leaves/track-leaves.component';
+import { LtsComponent } from './lts/lts.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     path:'register',
     component:RegistrationComponent,
     title:"Register"
+  },
+  {
+    path:'lts',
+    component:LtsComponent
   },
   {
     path:'employee',

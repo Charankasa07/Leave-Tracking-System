@@ -1,10 +1,15 @@
 package com.lts1.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
+import com.lts1.service.MailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,9 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lts1.model.Leaves;
 import com.lts1.model.User;
-import com.lts1.service.LeaveService;
-import com.lts1.service.UserService;
 import com.lts1.serviceImpl.LeaveServiceImpl;
+import com.lts1.serviceImpl.UserServiceImpl;
 
 @RestController
 @RequestMapping("/manager")
@@ -29,44 +33,52 @@ public class ManagerController {
 	private LeaveServiceImpl leaveService;
 	
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
+
+	@Autowired
+	private MailSenderService mailSenderService;
 	
 	HashMap<String,Object> response = new HashMap<String,Object>();
+
 	
 	@GetMapping("/new-requests")
-	public HashMap<String, Object> getPendingLeaves(){
+	public ResponseEntity<Object> getPendingLeaves(){
 		response.put("data",leaveService.getPendingLeaves());
 		response.put("message", "Data Recieved");
 		response.put("statusCode", HttpStatus.OK);
-		return response;
+		return ResponseEntity.ok(response);
 	}
 	
 	@GetMapping("/overview")
-	public HashMap<String,Object> getOverviewLeaves(){
+	public ResponseEntity<Object>getOverviewLeaves(){
 		response.put("message", "Data Recieved");
 		response.put("data",leaveService.getAllLeaves());
-		return response;
+		return ResponseEntity.ok(response);
 	}
 	
-	@PatchMapping("/leave/{id}/{action}")
-	public HashMap<String, Object> reactToLeave(@RequestBody String message,@PathVariable int id,@PathVariable String action){
+	@PostMapping("/react-to-leave/{id}/{action}")
+	public ResponseEntity<Object> reactToLeave(@RequestBody String message,@PathVariable int id,@PathVariable String action)throws Exception{
 		Leaves leave = leaveService.checkExistence(id);
-		System.out.println(message);
 		leave.setStatus(action);
 		leave.setMessage(message);
+		String pattern = "EEEEEE dd MMM yyyy HH:mm a";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		Date startDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(leave.getStartDate());
+		Date endDate = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm").parse(leave.getEndDate());
 		if(action.equals("accepted")) {
 			userService.onAcceptLeave(leave.getEmail());
 		}
+		mailSenderService.sendEmail(leave.getEmail(), "Reg : Status of the Leave","Dear " + leave.getName() + ",\n Your leave request of type "+ leave.getType()+" from " + simpleDateFormat.format(startDate) + " to " + simpleDateFormat.format(endDate) + " is " + action.toUpperCase() );
 		leaveService.saveLeave(leave);
 		response.put("data", leave);
 		response.put("statusCode", HttpStatus.OK);
 		response.put("message","Reacted Successfully");
-		return response;
+		return ResponseEntity.ok(response);
 		
 	}
 	
-	@PostMapping("/{count}")
-	public HashMap<String,Object> updateLeaveCount(@PathVariable int count) {
+	@PostMapping("/update-leave-count/{count}")
+	public ResponseEntity<Object> updateLeaveCount(@PathVariable int count) {
 		List<User> users = userService.getAllUsers();
 		for(User u : users) {
 			u.setNumberOfLeaves(count);
@@ -84,7 +96,6 @@ public class ManagerController {
 		}
 		response.put("message","Leave count updated successfully");
 		response.put("statusCode", HttpStatus.OK);
-		return response;
-		
+		return ResponseEntity.ok(response);
 	}
 }

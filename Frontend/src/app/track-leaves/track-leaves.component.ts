@@ -35,7 +35,9 @@ export class TrackLeavesComponent implements OnInit {
     this.isFetched=false
     this.backend.getAllLeaves(this.currentUser.email).subscribe((res)=>{
       this.leaves = res.data
-      this.isFetched=true
+      setTimeout(()=>{
+        this.isFetched=true
+      },500)
     })
     
   }
