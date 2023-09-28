@@ -15,10 +15,8 @@ public class Leaves{
 	private String name;
 	private String email;
 	private String type;
-	private
-String startDate;
-	private
-String endDate;
+	private String startDate;
+	private String endDate;
 	private String reason;
 	private String status;
 	private String message;

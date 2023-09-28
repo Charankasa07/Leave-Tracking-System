@@ -203,7 +203,7 @@ class LtsApplicationTests {
 	@Test
 	@DisplayName("Updating Leave Count")
 	public void shouldUpdateLeaveCount() throws URISyntaxException{
-		URI uri = new URI(baseUrl + port + "/manager/update-leave-count/50");
+		URI uri = new URI(baseUrl + port + "/manager/update-leave-count/20");
 		ResponseEntity<Object> response = restTemplate.postForEntity(uri, null, Object.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}

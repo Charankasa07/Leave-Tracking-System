@@ -1,4 +1,4 @@
-package com.lts1.service;
+package com.lts1.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

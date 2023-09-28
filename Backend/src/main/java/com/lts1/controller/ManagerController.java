@@ -4,15 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 
-import com.lts1.service.MailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +20,7 @@ import com.lts1.model.Leaves;
 import com.lts1.model.User;
 import com.lts1.serviceImpl.LeaveServiceImpl;
 import com.lts1.serviceImpl.UserServiceImpl;
+import com.lts1.serviceImpl.MailSenderService;
 
 @RestController
 @RequestMapping("/manager")
@@ -44,14 +42,14 @@ public class ManagerController {
 	@GetMapping("/new-requests")
 	public ResponseEntity<Object> getPendingLeaves(){
 		response.put("data",leaveService.getPendingLeaves());
-		response.put("message", "Data Recieved");
+		response.put("message", "Data Received");
 		response.put("statusCode", HttpStatus.OK);
 		return ResponseEntity.ok(response);
 	}
 	
 	@GetMapping("/overview")
 	public ResponseEntity<Object>getOverviewLeaves(){
-		response.put("message", "Data Recieved");
+		response.put("message", "Data Received");
 		response.put("data",leaveService.getAllLeaves());
 		return ResponseEntity.ok(response);
 	}
