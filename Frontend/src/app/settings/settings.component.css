@@ -21,7 +21,8 @@ button,button:disabled{
     width:420px;
     background: transparent;
     color: #05386B;
-    border:1px solid #05386B
+    border:1px solid #05386B;
+    border-radius: 2px;
 }
 button:hover{
     color:white;

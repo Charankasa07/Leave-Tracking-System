@@ -1,6 +1,9 @@
 <div class="container">
     <form #registrationForm="ngForm" (ngSubmit)="onRegister()">
-        <p id="title">Registration</p>
+        <div class="logo">
+            <img src="assets/edtex-logo.png" alt="">
+        </div>
+        <nz-divider></nz-divider>
         <select name="role" class="form-control" [(ngModel)]="user.role">
             <option value="employee">Employee</option>
             <option value="manager">Manager</option>

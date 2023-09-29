@@ -1,7 +1,7 @@
 <nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
 <nz-affix class="container" *ngIf="isFetched">
- <p *ngIf="!filteredLeaves.length" id="message">No Data</p>
- <input type="text" nz-input placeholder="Search" [(ngModel)]="searchInput" (input)="search()" *ngIf="filteredLeaves.length">
+  <input type="text" nz-input placeholder="Search" [(ngModel)]="searchInput" (input)="search()" *ngIf="allLeaves.length">
+  <nz-empty nzNotFoundImage="simple" *ngIf="!filteredLeaves.length"></nz-empty> 
     <table class="table" *ngIf="filteredLeaves.length" >
     <tr>
       <th>Leave Type</th>
@@ -43,7 +43,12 @@
           [routerLink]="['../edit-leave', leave.id]"
           *ngIf="leave.status === 'pending'"
           ><span nz-icon nzType="edit" nzTheme="outline" id="edit"></span></button>
-          <button (click)="delete(leave.id)" *ngIf="leave.status === 'pending'">
+          <button 
+            nz-popconfirm 
+            nzPopconfirmTitle="Are you sure delete this Leave?"
+            nzPopconfirmPlacement="bottom"
+            (nzOnConfirm)="delete(leave.id)"
+            *ngIf="leave.status === 'pending'">
             <span nz-icon nzType="delete" nzTheme="outline" id="delete"></span>
         </button>
       </td>

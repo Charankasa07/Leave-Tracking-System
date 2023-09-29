@@ -36,13 +36,8 @@ button{
     padding: 22% 32%;
     border-radius: 15%;
 }
-#message{
-    margin-top:5%;
-    width: 100%;
-    text-align: center;
-    font-weight: 400;
-    font-size: x-large;
-    color:black;
+nz-empty{
+    margin-top:40px
 }
 input{
     margin:20px 0px;

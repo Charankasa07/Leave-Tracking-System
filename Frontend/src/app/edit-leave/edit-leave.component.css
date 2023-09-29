@@ -24,7 +24,8 @@ button,button:disabled{
 }
 button:hover{
     background-color: #05386B ;
-    color:white
+    color:white;
+    border-radius: 2px;
 }
 select,input{
     width: 450px;

@@ -1,7 +1,7 @@
 <nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
 <div class="container" *ngIf="isFetched">
-    <p *ngIf="!filteredLeaves.length" id="message">No Data</p>
-    <input type="text" nz-input placeholder="Search" [(ngModel)]="searchInput" (input)="search()" *ngIf="filteredLeaves.length">
+    <input type="text" nz-input placeholder="Search" [(ngModel)]="searchInput" (input)="search()" *ngIf="allLeaves.length">
+    <nz-empty nzNotFoundImage="simple" *ngIf="!filteredLeaves.length"></nz-empty> 
     <table *ngIf="filteredLeaves.length" class="table">
         <tr>
             <th>Employee Name</th>

@@ -3,6 +3,7 @@ import { UserRegister, Leave } from '../User';
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { BackendService } from '../backend.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-track-leaves',
@@ -53,7 +54,7 @@ export class TrackLeavesComponent implements OnInit {
   }
   search(){
     this.filteredLeaves = this.allLeaves.filter((leave)=> {
-        let combinedLeave =leave.type + leave.endDate + leave.startDate
+        let combinedLeave =leave.type + leave.endDate + leave.startDate + leave.status
         return combinedLeave.toLowerCase().includes(this.searchInput.toLowerCase())
     })
   }

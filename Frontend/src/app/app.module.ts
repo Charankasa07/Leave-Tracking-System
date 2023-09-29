@@ -19,6 +19,8 @@ import { NewRequestsComponent } from './new-requests/new-requests.component';
 import { OverviewComponent } from './overview/overview.component';
 import { LeaveHistoryComponent } from './leave-history/leave-history.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LtsComponent } from './lts/lts.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -33,7 +35,10 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
-import { LtsComponent } from './lts/lts.component';
+import { NzResultModule } from 'ng-zorro-antd/result';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 registerLocaleData(en);
 
@@ -53,7 +58,8 @@ registerLocaleData(en);
     OverviewComponent,
     LeaveHistoryComponent,
     SettingsComponent,
-    LtsComponent
+    LtsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,11 @@ registerLocaleData(en);
     NzDropDownModule,
     NzIconModule,
     NzDividerModule,
-    NzAffixModule
+    NzAffixModule,
+    NzResultModule,
+    NzPopconfirmModule,
+    NzTableModule,
+    NzEmptyModule
   ],
   bootstrap: [AppComponent],
   providers: [

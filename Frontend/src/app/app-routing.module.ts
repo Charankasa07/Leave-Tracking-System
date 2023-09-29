@@ -13,26 +13,20 @@ import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TrackLeavesComponent } from './track-leaves/track-leaves.component';
 import { LtsComponent } from './lts/lts.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
     path:'',
     component:HomeComponent,
-    title:"Leave Tracking System"
   },
   {
     path:'login',
     component:LoginComponent,
-    title:"Login"
   },
   {
     path:'register',
     component:RegistrationComponent,
-    title:"Register"
-  },
-  {
-    path:'lts',
-    component:LtsComponent
   },
   {
     path:'employee',
@@ -40,23 +34,19 @@ const routes: Routes = [
     children:[
       {
         path:'apply-leave',
-        component:ApplyLeaveComponent,
-        title:"Apply Leave"
+        component:ApplyLeaveComponent
       },
       {
         path:'track-leaves',
         component:TrackLeavesComponent,
-        title:"Track Leaves"
       },
       {
         path:'edit-leave/:id',
         component:EditLeaveComponent,
-        title:"Edit Leave"
       },
       {
         path:'leave-history',
         component:LeaveHistoryComponent,
-        title:"Leave History"
       },
       {
         path:'',
@@ -72,17 +62,14 @@ const routes: Routes = [
       {
         path:'new-requests',
         component:NewRequestsComponent,
-        title:"New Requests"
       },
       {
         path:'overview',
         component:OverviewComponent,
-        title:"Overview"
       },
       {
         path:'settings',
         component:SettingsComponent,
-        title:"Settings"
       },
       {
         path:'',
@@ -90,6 +77,10 @@ const routes: Routes = [
         pathMatch:'full'
       }
     ]
+  },
+  {
+    path:'**',
+    component:NotFoundComponent
   }
 ];
 

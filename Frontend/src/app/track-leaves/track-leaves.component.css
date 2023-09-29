@@ -56,5 +56,7 @@ a,button{
 input{
     margin:20px 0px;
     width: 300px;
-    left:73%
+}
+nz-empty{
+    margin-top:40px
 }

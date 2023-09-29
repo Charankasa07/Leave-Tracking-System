@@ -1,6 +1,9 @@
 <div class="container">
     <form #loginForm="ngForm" (ngSubmit)="onLogin()">
-        <p id="title">Login</p>
+        <div class="logo">
+            <img src="assets/edtex-logo.png" alt="">
+        </div>
+        <nz-divider></nz-divider>
         <input type="text" name="email" placeholder="Email" class="form-control" [(ngModel)]="currentUser.email" required pattern="^[a-z0-9+._-]+@[a-z]+[.][a-z]{2,3}" #email="ngModel">
         <p *ngIf="email.errors?.['required'] && email.dirty" class="error-message">Email is Required</p>
         <p *ngIf="email.errors?.['pattern'] && email.touched" class="error-message">Email is Incorrect</p>
