@@ -37,7 +37,6 @@ public class ManagerController {
 	private MailSenderService mailSenderService;
 	
 	HashMap<String,Object> response = new HashMap<String,Object>();
-
 	
 	@GetMapping("/new-requests")
 	public ResponseEntity<Object> getPendingLeaves(){
