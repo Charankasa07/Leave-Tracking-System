@@ -80,7 +80,6 @@ public class ManagerController {
 		List<User> users = userService.getAllUsers();
 		boolean flag = true;
 		for (User u : users) {
-			//u.setNumberOfLeaves(count);
 			if (u.getRole().equals("employee")) {
 				List<Leaves> leaves = leaveService.getUserLeaves(u.getEmail());
 				int acceptedCount = 0;
@@ -92,8 +91,6 @@ public class ManagerController {
 				if (acceptedCount > count) {
 					flag = false;
 				}
-				//u.setRemainingLeaves(u.getNumberOfLeaves()-acceptedCount);
-				//userService.saveUser(u);
 			}
 		}
 		if (flag) {

@@ -41,7 +41,6 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<Object> login(@RequestBody User userLogin) {
-		HashMap<String,Object> response = new HashMap<String,Object>();
 		Optional<User> user= userService.getUserById(userLogin.getEmail());
 		if(!user.isPresent()) {
 			response.put("message","User Doesn't exists");
