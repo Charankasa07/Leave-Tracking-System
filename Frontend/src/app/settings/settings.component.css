@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 480px;
     width: 800px;
 }
 .form{
@@ -15,7 +15,6 @@
     height: 200px;
     width: 450px;
     padding: 2%;
-    border-radius: 10px;
 }
 button,button:disabled{
     width:420px;

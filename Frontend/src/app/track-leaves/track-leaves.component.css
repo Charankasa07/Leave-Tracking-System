@@ -60,3 +60,9 @@ input{
 nz-empty{
     margin-top:40px
 }
+.table-data{
+    transition: 0.1s ease-in;
+}
+.table-data:hover{
+    background-color: rgb(236, 236, 236);
+}

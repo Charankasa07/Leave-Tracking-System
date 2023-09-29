@@ -78,22 +78,45 @@ public class ManagerController {
 	@PostMapping("/update-leave-count/{count}")
 	public ResponseEntity<Object> updateLeaveCount(@PathVariable int count) {
 		List<User> users = userService.getAllUsers();
-		for(User u : users) {
-			u.setNumberOfLeaves(count);
-			if(u.getRole().equals("employee")) {
+		boolean flag = true;
+		for (User u : users) {
+			//u.setNumberOfLeaves(count);
+			if (u.getRole().equals("employee")) {
 				List<Leaves> leaves = leaveService.getUserLeaves(u.getEmail());
-				int count1=0;
-				for(Leaves l:leaves) {
-					if(l.getEmail().equals(u.getEmail()) && l.getStatus().equals("accepted")) {
-						count1+=1;
+				int acceptedCount = 0;
+				for (Leaves l : leaves) {
+					if (l.getEmail().equals(u.getEmail()) && l.getStatus().equals("accepted")) {
+						acceptedCount += 1;
 					}
 				}
-				u.setRemainingLeaves(u.getNumberOfLeaves()-count1);
-				userService.saveUser(u);
+				if (acceptedCount > count) {
+					flag = false;
+				}
+				//u.setRemainingLeaves(u.getNumberOfLeaves()-acceptedCount);
+				//userService.saveUser(u);
 			}
 		}
-		response.put("message","Leave count updated successfully");
-		response.put("statusCode", HttpStatus.OK);
+		if (flag) {
+			for (User u : users) {
+				u.setNumberOfLeaves(count);
+				if (u.getRole().equals("employee")) {
+					List<Leaves> leaves = leaveService.getUserLeaves(u.getEmail());
+					int acceptedCount = 0;
+					for (Leaves l : leaves) {
+						if (l.getEmail().equals(u.getEmail()) && l.getStatus().equals("accepted")) {
+							acceptedCount += 1;
+						}
+					}
+					u.setRemainingLeaves(u.getNumberOfLeaves() - acceptedCount);
+					userService.saveUser(u);
+				}
+			}
+			response.put("message", "Leave count updated successfully");
+			response.put("statusCode", HttpStatus.OK);
+			return ResponseEntity.ok(response);
+		}
+		response.put("message", "One or More Employee's having accepted leaves greater than given leave count");
+		response.put("statusCode",HttpStatus.CONFLICT);
 		return ResponseEntity.ok(response);
 	}
 }

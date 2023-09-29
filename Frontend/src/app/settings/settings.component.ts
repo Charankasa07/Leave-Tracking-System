@@ -33,10 +33,16 @@ export class SettingsComponent implements OnInit {
   onSubmit() {
     this.currentUser.numberOfLeaves = this.numberOfLeaves
     localStorage.setItem("currentUser",JSON.stringify(this.currentUser));
-    this.backend.updateLeaveCount(this.numberOfLeaves).subscribe((res)=>console.log(res))
-    this.message.success("Leave Count Updated Successfully",{nzDuration:1500})
-    setTimeout(()=>{
-      window.location.href = 'http://localhost:4200/manager/new-requests';
-    },1500)
+    this.backend.updateLeaveCount(this.numberOfLeaves).subscribe((res)=>{
+      if(res.statusCode === "OK"){
+        this.message.success(res.message,{nzDuration:1500})
+        setTimeout(()=>{
+          window.location.href = 'http://localhost:4200/manager/new-requests';
+        },1500)
+      }
+      else{
+        this.message.error(res.message,{nzDuration:2500})
+      }
+    })
   }
 }

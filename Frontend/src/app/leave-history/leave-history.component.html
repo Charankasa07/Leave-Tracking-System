@@ -2,7 +2,7 @@
 <div class="container" *ngIf="isFetched">
   <p id="welcome">Welcome {{currentUser.name | titlecase}}</p>
   <div class="details">
-    <p style="font-weight:500 ;">Total Number of Leaves for Employee : {{currentUser.numberOfLeaves}}</p>
+    <p style="font-weight:500;color: black ;">Total Number of Leaves for Employee : <strong>{{currentUser.numberOfLeaves}}</strong></p>
     <p>Accepted Leaves : {{AcceptedLeaves}}</p>
     <p>Rejected Leaves : {{RejectedLeaves}}</p>
     <p>Pending Leaves : {{PendingLeaves}}</p>

@@ -1,9 +1,9 @@
 <nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
-<nz-affix class="container" *ngIf="isFetched">
+<div class="container" *ngIf="isFetched">
   <input type="text" nz-input placeholder="Search" [(ngModel)]="searchInput" (input)="search()" *ngIf="allLeaves.length">
   <nz-empty nzNotFoundImage="simple" *ngIf="!filteredLeaves.length"></nz-empty> 
     <table class="table" *ngIf="filteredLeaves.length" >
-    <tr>
+      <tr>
       <th>Leave Type</th>
       <th>Start Date</th>
       <th>End Date</th>
@@ -12,10 +12,11 @@
       <th>Actions</th>
     </tr>
     <tr
-      [ngClass]="e ? 'even' : 'odd'"
+    [ngClass]="e ? 'even' : 'odd'"
       *ngFor="let leave of filteredLeaves; let e = even; let o = odd"
+      class="table-data"
     >
-      <td>{{ leave.type | titlecase }}</td>
+    <td>{{ leave.type | titlecase }}</td>
       <td>{{ leave.startDate | date : "medium" }}</td>
       <td>{{ leave.endDate | date : "medium" }}</td>
       <td
@@ -45,8 +46,10 @@
           ><span nz-icon nzType="edit" nzTheme="outline" id="edit"></span></button>
           <button 
             nz-popconfirm 
-            nzPopconfirmTitle="Are you sure delete this Leave?"
+            nzPopconfirmTitle="Are you sure to delete this Leave?"
             nzPopconfirmPlacement="bottom"
+            nzOkText="Yes"
+            nzCancelText="No"
             (nzOnConfirm)="delete(leave.id)"
             *ngIf="leave.status === 'pending'">
             <span nz-icon nzType="delete" nzTheme="outline" id="delete"></span>
@@ -54,4 +57,4 @@
       </td>
     </tr>
   </table>
-</nz-affix>
+</div>

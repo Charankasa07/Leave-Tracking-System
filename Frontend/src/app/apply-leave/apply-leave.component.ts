@@ -40,7 +40,8 @@ export class ApplyLeaveComponent implements OnInit {
   };
   //function for applying a leave
   onApplyLeave() {
-       //converting the startDate of the leave to the ISO String format
+    if(this.currentUser.remainingLeaves>0){
+      //converting the startDate of the leave to the ISO String format
       const startDate = new Date(this.leave.startDate).toISOString();
       //comparing whether the startdate is greater than the current date or not
       if (startDate >= new Date().toISOString()) {
@@ -63,6 +64,12 @@ export class ApplyLeaveComponent implements OnInit {
         //displaying error message if the startDate is not greater than the current Date
         this.message.error("Start Date must be greater than Today's Date",{nzDuration:1500})
       }
+    }else{
+      this.message.error("You are out of Leaves");
+      setTimeout(()=>{
+        window.location.href="http://localhost:4200/employee/track-leaves"
+      },1500)
+    }
   }
   ngOnInit(): void {
     const currentUserData = localStorage.getItem('currentUser');
