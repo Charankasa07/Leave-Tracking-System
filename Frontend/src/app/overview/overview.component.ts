@@ -18,6 +18,7 @@ export class OverviewComponent implements OnInit {
     this.isFetched = false
     this.backend.getOverviewLeaves().subscribe((res)=>{
       this.allLeaves = res.data;
+      this.allLeaves = this.allLeaves.filter((leave)=> leave.status !=='pending');
       this.filteredLeaves = this.allLeaves.filter((leave)=> leave.status !=='pending');
       setTimeout(()=>{
         this.isFetched=true
@@ -33,7 +34,7 @@ export class OverviewComponent implements OnInit {
 
   search(){
     this.filteredLeaves = this.allLeaves.filter((leave)=> {
-        let combinedLeave = leave.name + leave.status + leave.type + leave.endDate + leave.startDate
+        let combinedLeave = leave.name + leave.status + leave.type 
         return combinedLeave.toLowerCase().includes(this.searchInput.toLowerCase())
     })
   }

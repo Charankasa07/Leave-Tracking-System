@@ -54,7 +54,7 @@ export class TrackLeavesComponent implements OnInit {
   }
   search(){
     this.filteredLeaves = this.allLeaves.filter((leave)=> {
-        let combinedLeave =leave.type + leave.endDate + leave.startDate + leave.status
+        let combinedLeave =leave.type + leave.status
         return combinedLeave.toLowerCase().includes(this.searchInput.toLowerCase())
     })
   }

@@ -79,7 +79,7 @@ export class NewRequestsComponent implements OnInit {
   }
   search(){
     this.filteredLeaves = this.allLeaves.filter((leave)=> {
-        let combinedLeave = leave.name + leave.type + leave.endDate + leave.startDate
+        let combinedLeave = leave.name + leave.type 
         return combinedLeave.toLowerCase().includes(this.searchInput.toLowerCase())
     })
   }
