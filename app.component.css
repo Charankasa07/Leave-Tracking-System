@@ -1,0 +1,36 @@
+#title1{
+    margin-top:10px;
+    width: 100vw;
+    text-align: center;
+    font-size: 2.3em;
+}
+.main{
+    background-color: #05386B ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    padding: 0% 1%;
+    height:105px;
+    color: white;
+}
+.headings{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0% 2% 0% 4%;
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.login-register{
+    margin-top: -10px;
+    display:flex ;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    padding-bottom: 0.5%;
+}

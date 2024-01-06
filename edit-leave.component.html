@@ -1,0 +1,15 @@
+<nz-spin nzSimple *ngIf="!isFetched" [nzSize]="'large'"></nz-spin> 
+<div class="container" *ngIf="isFetched">
+    <form #leaveForm="ngForm" (ngSubmit)="save()">
+        <p id="title">Edit Leave</p>
+        <select name="leave-type" class="form-control" [(ngModel)]="leave.type">
+            <option value="sick leave">Sick Leave</option>
+            <option value="vacation">Vacation</option>
+            <option value="personal">Personal</option>
+        </select>
+        <input type="datetime-local" class="form-control" name="start-date" [(ngModel)]="leave.startDate" required #startDate="ngModel">
+        <input type="datetime-local" class="form-control" name="end-date"  [(ngModel)]="leave.endDate" required #endDate="ngModel">
+        <textarea name="reason" cols="45" rows="3" class="form-control" required [(ngModel)]="leave.reason" placeholder="Reason"></textarea>
+        <button type="submit" [disabled]="leaveForm.invalid" class="btn btn-secondary">Save Changes</button>
+    </form>
+</div>

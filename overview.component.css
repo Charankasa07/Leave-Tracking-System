@@ -1,0 +1,49 @@
+.even{
+    background-color:  rgb(241, 242, 243) ;
+}
+.odd{
+    background-color:white
+}
+.table{
+    text-align: center;
+    margin-top:0.5%;
+    font-size: 15px;
+}
+td,th{
+    padding: 1%;
+    width: fit-content;
+}
+th{
+    background-color: #05386B;
+    color:white
+}
+#reason{
+    width: 18%;
+}
+#message{
+    margin-top:5%;
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-size: x-large;
+    color:black;
+}
+.rejected{
+    color: rgb(176, 5, 5);
+}
+.accepted{
+    color:rgb(1, 137, 1);
+}
+input{
+    margin:20px 0px;
+    width: 350px;
+}
+nz-empty{
+    margin-top:40px
+}
+.table-data{
+    transition: 0.1s ease-in;
+}
+.table-data:hover{
+    background-color: rgb(236, 236, 236);
+}
